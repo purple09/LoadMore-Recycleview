@@ -14,14 +14,6 @@ import java.lang.annotation.RetentionPolicy;
 import gz.purple.R;
 import gz.purple.loadmore.LoadMoreFooter;
 
-/**
- * @Description: TODO describe this class
- * @Copyright: Copyright (c) 2016 chexiang.com. All right reserved.
- * @Author: guizhen
- * @Date: 2016/6/15 17:29
- * @Modifier: guizhen
- * @Update: 2016/6/15 17:29
- */
 public class LoadingFooter extends LinearLayout implements LoadMoreFooter {
 
     private int mState;

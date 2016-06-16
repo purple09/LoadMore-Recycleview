@@ -8,14 +8,6 @@ import android.util.Log;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-/**
- * @Description: TODO describe this class
- * @Copyright: Copyright (c) 2016 chexiang.com. All right reserved.
- * @Author: guizhen
- * @Date: 2016/6/15 13:42
- * @Modifier: guizhen
- * @Update: 2016/6/15 13:42
- */
 public abstract class RVLoadMoreRvOnScrollListener extends RecyclerView.OnScrollListener {
 
     /**

@@ -9,16 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-/**
- * @Description: divider for recycler view
- * @Copyright: Copyright (c) 2016 chexiang.com. All right reserved.
- * @Author: zhangshunjie
- * @Date: 2016/1/19 11:26
- * @Modifier: zhangshunjie
- * @Update: 2016/1/19 11:26
- *
- * @Reference: https://gist.github.com/alexfu/0f464fc3742f134ccd1e
- */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private static final int[] ATTRS = new int[]{
