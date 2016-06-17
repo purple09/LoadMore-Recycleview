@@ -1,7 +1,6 @@
 package gz.purple.demo;
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -16,10 +15,9 @@ import gz.purple.loadmore.LoadMoreFooter;
 
 public class LoadingFooter extends LinearLayout implements LoadMoreFooter {
 
-    private int mState;
+    private int mState = LOADING_STATE_INIT;
     private ProgressBar pb;
     private TextView tv;
-    private Handler handler;
 
     public LoadingFooter(Context context) {
         super(context);
@@ -41,7 +39,6 @@ public class LoadingFooter extends LinearLayout implements LoadMoreFooter {
         pb = (ProgressBar) findViewById(R.id.footer_progressBar);
         tv = (TextView) findViewById(R.id.footer_tv);
         setState(LOADING_STATE_NORMAL);
-        handler = new Handler();
     }
 
     public void setState(@LoadingState int state) {
@@ -62,14 +59,6 @@ public class LoadingFooter extends LinearLayout implements LoadMoreFooter {
                 tv.setText("加载中");
                 break;
             case LOADING_STATE_COMPLETE:
-                /*handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        tv.setText("加载完成");
-                        pb.setVisibility(INVISIBLE);
-                        setState(LOADING_STATE_NORMAL);
-                    }
-                }, 500);*/
                 setState(LOADING_STATE_NORMAL);
                 break;
 
@@ -79,6 +68,8 @@ public class LoadingFooter extends LinearLayout implements LoadMoreFooter {
     public int getState() {
         return mState;
     }
+
+    private static final int LOADING_STATE_INIT = -1;
 
     public static final int LOADING_STATE_NORMAL = 0;
 
@@ -109,7 +100,7 @@ public class LoadingFooter extends LinearLayout implements LoadMoreFooter {
     }
 
 
-    @IntDef({LOADING_STATE_NORMAL, LOADING_STATE_LOAD, LOADING_STATE_COMPLETE, LOADING_STATE_PREPARE})
+    @IntDef({LOADING_STATE_INIT, LOADING_STATE_NORMAL, LOADING_STATE_LOAD, LOADING_STATE_COMPLETE, LOADING_STATE_PREPARE})
     @Retention(RetentionPolicy.SOURCE)
     public @interface LoadingState {
     }

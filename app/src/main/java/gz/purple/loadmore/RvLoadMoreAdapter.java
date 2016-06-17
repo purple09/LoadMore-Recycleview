@@ -65,7 +65,8 @@ public abstract class RvLoadMoreAdapter extends RecyclerView.Adapter {
 
     @Override
     public final int getItemCount() {
-        return getRvItemCount() + (hasFooter ? 1 : 0);
+        int rvItemCount = getRvItemCount();
+        return rvItemCount == 0 ? 0 : getRvItemCount() + (hasFooter ? 1 : 0);
     }
 
     @Override
@@ -75,7 +76,6 @@ public abstract class RvLoadMoreAdapter extends RecyclerView.Adapter {
         else
             return getRvItemViewType(position);
     }
-
 
     public class FootHolder extends RecyclerView.ViewHolder {
 

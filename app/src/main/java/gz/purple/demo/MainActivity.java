@@ -30,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
         handler = new Handler();
 
         dataList = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            dataList.add("item" + (i + 1));
-        }
+
         rv = (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
@@ -70,6 +68,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         rv.setAdapter(adapter);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 5; i++) {
+                    dataList.add("item" + (i + 1));
+                }
+                adapter.notifyDataSetChanged();
+            }
+        },5000);
 
         ptrFrameLayout = (PtrFrameLayout) findViewById(R.id.ptr_pull_refresh);
         ptrFrameLayout.setPtrHandler(new PtrHandler() {
