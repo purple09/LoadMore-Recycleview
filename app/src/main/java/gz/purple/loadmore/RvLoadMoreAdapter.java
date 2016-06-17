@@ -1,6 +1,5 @@
 package gz.purple.loadmore;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,13 +11,9 @@ public abstract class RvLoadMoreAdapter extends RecyclerView.Adapter {
 
     private boolean hasFooter = false;
     private View footerView;
-    public Context context;
     private RVLoadMoreRvOnScrollListener listener;
 
 
-    public RvLoadMoreAdapter(Context context) {
-        this.context = context;
-    }
 
     public boolean isHasFooter() {
         return hasFooter;
@@ -85,7 +80,7 @@ public abstract class RvLoadMoreAdapter extends RecyclerView.Adapter {
     }
 
     private View defaultFooter(ViewGroup parent) {
-        TextView footerTv = (TextView) LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, parent, false);
+        TextView footerTv = (TextView) LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
         footerTv.setText("Footer");
         return footerTv;
     }
